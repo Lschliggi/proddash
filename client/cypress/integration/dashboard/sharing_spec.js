@@ -53,11 +53,12 @@ describe("Dashboard Sharing", () => {
     };
 
     const dashboardUrl = this.dashboardUrl;
-    cy.createQuery({ options }).then(({ id: queryId }) => {
+    cy.createQuery({ options }).then(({ id: queryId, name: queryName }) => {
       cy.visit(dashboardUrl);
       editDashboard();
       cy.getByTestId("AddWidgetButton").click();
       cy.getByTestId("AddWidgetDialog").within(() => {
+        cy.get("input").type(queryName);
         cy.get(`.query-selector-result[data-test="QueryId${queryId}"]`).click();
       });
       cy.contains("button", "Add to Dashboard").click();
@@ -153,7 +154,7 @@ describe("Dashboard Sharing", () => {
           const secondWidgetPos = { autoHeight: false, col: 3, sizeY: 6 };
           createQueryAndAddWidget(this.dashboardId, unsafeQueryData, { position: secondWidgetPos }).then(() => {
             cy.logout();
-            cy.title().should("eq", "Login to Vetter Data Dashboard"); // Make sure it's logged out
+            cy.title().should("eq", "Login to Redash"); // Make sure it's logged out
             cy.visit(secretAddress);
             cy.getByTestId("TableVisualization", { timeout: 10000 }).should("exist");
             cy.contains(
@@ -178,11 +179,12 @@ describe("Dashboard Sharing", () => {
     };
 
     const dashboardUrl = this.dashboardUrl;
-    cy.createQuery({ options }).then(({ id: queryId }) => {
+    cy.createQuery({ options }).then(({ id: queryId, name: queryName }) => {
       cy.visit(dashboardUrl);
       editDashboard();
       cy.getByTestId("AddWidgetButton").click();
       cy.getByTestId("AddWidgetDialog").within(() => {
+        cy.get("input").type(queryName);
         cy.get(`.query-selector-result[data-test="QueryId${queryId}"]`).click();
       });
       cy.contains("button", "Add to Dashboard").click();

@@ -8,12 +8,11 @@ import CreateDashboardDialog from "@/components/dashboards/CreateDashboardDialog
 import { useCurrentRoute } from "@/components/ApplicationArea/Router";
 import { Auth, currentUser } from "@/services/auth";
 import settingsMenu from "@/services/settingsMenu";
-import logoUrl from "@/assets/images/redash_icon_small_white.png";
+import logoUrl from "@/assets/images/redash_icon_small.png";
 
 import DesktopOutlinedIcon from "@ant-design/icons/DesktopOutlined";
 import CodeOutlinedIcon from "@ant-design/icons/CodeOutlined";
 import AlertOutlinedIcon from "@ant-design/icons/AlertOutlined";
-import HistoryOutlinedIcon from "@ant-design/icons/HistoryOutlined";
 import PlusOutlinedIcon from "@ant-design/icons/PlusOutlined";
 import QuestionCircleOutlinedIcon from "@ant-design/icons/QuestionCircleOutlined";
 import SettingOutlinedIcon from "@ant-design/icons/SettingOutlined";
@@ -58,7 +57,6 @@ function useNavbarActiveState() {
       ),
       dataSources: includes(["DataSources.List"], currentRoute.id),
       alerts: includes(["Alerts.List", "Alerts.New", "Alerts.View", "Alerts.Edit"], currentRoute.id),
-      provisioning: includes(["Provisioning"], currentRoute.id),
     }),
     [currentRoute.id]
   );
@@ -108,12 +106,6 @@ export default function DesktopNavbar() {
             </Link>
           </Menu.Item>
         )}
-          <Menu.Item key="provisioning" className={activeState.provisioning ? "navbar-active-item" : null}>
-            <Link href="provisioning">
-              <HistoryOutlinedIcon aria-label="Data provisioning button" />
-              <span className="desktop-navbar-label">Provide Data</span>
-            </Link>
-          </Menu.Item>
       </NavbarSection>
 
       <NavbarSection className="desktop-navbar-spacer">
