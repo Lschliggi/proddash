@@ -8,7 +8,7 @@ import Menu from "antd/lib/menu";
 import Link from "@/components/Link";
 import { Auth, currentUser } from "@/services/auth";
 import settingsMenu from "@/services/settingsMenu";
-import logoUrl from "@/assets/images/redash_icon_small.png";
+import logoUrl from "@/assets/images/redash_icon_small_white.png";
 
 import "./MobileNavbar.less";
 
@@ -44,6 +44,9 @@ export default function MobileNavbar({ getPopupContainer }) {
                   <Link href="alerts">Alerts</Link>
                 </Menu.Item>
               )}
+              <Menu.Item key="queue">
+                <Link href="queue">Queue</Link>
+              </Menu.Item>
               <Menu.Item key="profile">
                 <Link href="users/me">Edit Profile</Link>
               </Menu.Item>

@@ -20,23 +20,30 @@ export default function QueueTable() {
   });
 };
 
-const openErrorNotification = () => {
+const openErrorNotification = (message) => {
   notification.error({
     message: 'Error',
     placement: "bottomLeft",
-    description: 'There was an error submitting your data.',
+    description: message,
     duration: 5, // Notification will hide after 5 seconds
   });
 };
- useEffect(() => {
-   const fetchdata = async () => {
-       const response = await fetch(
-         'https://vs-proddash-dat.ad.vetter-group.de/api/queue');
+useEffect(() => {
+  const fetchdata = async () => {
+      try {
+          const response = await fetch('https://vs-proddash-dat.ad.vetter-group.de/api/queue');
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
           const data = await response.json();
           setQueue(data);
-   }
-   fetchdata();
+      } catch (error) {
+          openErrorNotification('An error occurred while fetching the data!');
+      }
+  }
+  fetchdata();
 }, []);
+
 
 const handleDelete = async (key) => {
   try {
@@ -47,8 +54,7 @@ const handleDelete = async (key) => {
     setQueue(data);
     openSuccessNotification();
   } catch (error) {
-    console.error('Error deleting data:', error);
-    openErrorNotification();
+    openErrorNotification('Error deleting data:', error);
   }
 };
 

@@ -192,7 +192,7 @@ function EmptyState({
             <i className={icon} aria-hidden="true" />
           </h2>
           <p>{description}</p>
-          <img src={imageSource} alt={illustration + " Illustration"} width="75%" />
+          <img src={imageSource} alt={illustration + " Illustration"} width="50%" />
         </div>
         <div className="empty-state__steps">
           <h4>Let&apos;s get started</h4>

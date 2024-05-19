@@ -4,11 +4,11 @@
 .font-face(@family, @name, @weight: 300, @style){
     @font-face{
         font-family: @family;
-        src:url('../fonts/@{family}/@{name}.eot');
-        src:url('../fonts/@{family}/@{name}.eot?#iefix') format('embedded-opentype'),
+        src:url('../fonts/@{family}/@{name}.ttf') format('truetype'),
             url('../fonts/@{family}/@{name}.woff') format('woff'),
-            url('../fonts/@{family}/@{name}.ttf') format('truetype'),
-            url('../fonts/@{family}/@{name}.svg#icon') format('svg');
+            url('../fonts/@{family}/@{name}.woff2') format('woff2'),
+            url('../fonts/@{family}/@{name}.eot') format('embedded-opentype'),
+            url('../fonts/@{family}/@{name}.svg') format('svg');
         font-weight: @weight;
         font-style: @style;
     }

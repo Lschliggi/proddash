@@ -77,7 +77,7 @@ export default function Home() {
         {includes(messages, "email-not-verified") && <EmailNotVerifiedAlert />}
         <DynamicComponent name="Home.EmptyState">
           <EmptyState
-            header="Welcome to Redash 👋"
+            header="Welcome to Vetter Data Dashboard!"
             description="Connect to any data source, easily visualize and share your data"
             illustration="dashboard"
             helpMessage={<EmptyStateHelpMessage helpTriggerType="GETTING_STARTED" />}
@@ -97,7 +97,7 @@ routes.register(
   "Home",
   routeWithUserSession({
     path: "/",
-    title: "Redash",
+    title: "Vetter Data Dashboard",
     render: pageProps => <Home {...pageProps} />,
   })
 );
