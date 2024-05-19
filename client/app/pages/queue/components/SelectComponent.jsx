@@ -30,7 +30,7 @@ const SelectComponent = ({onChange}) => {
   return (
     <Select
       showSearch
-      placeholder="Select equiptment"
+      placeholder="Select Equipment"
       optionFilterProp="children"
       onChange={onChange}
       filterOption={(input, option) =>

@@ -56,7 +56,7 @@ const ProvideData = () => {
     try{
     // Post data to API
     const postData = {
-      "equiptment_ID": selectedValue,
+      "equipmentID": selectedValue,
       "from": selectedDate[0].format('YYYY-MM-DD'),
       "to": selectedDate[1].format('YYYY-MM-DD'),
       "user": currentUser['name'],
@@ -85,7 +85,7 @@ const ProvideData = () => {
         <Layout>
           <Layout.Sidebar className="m-b-0">
             <div className="selectcomponent selectionitem">
-              <h4>Add equiptment and date range to queue: </h4>
+              <h4>Add equipment and date range to queue:</h4>
               <SelectComponent onChange={handleSelectValue}/>
             </div>
             <div className="daterangecomponent selectionitem">

@@ -60,9 +60,9 @@ const handleDelete = async (key) => {
 
 const columns = [
   {
-    title: 'Equiptment',
-    dataIndex: 'equiptment',
-    key: 'equiptment',
+    title: 'Equipment',
+    dataIndex: 'equipment',
+    key: 'equipment',
   },
   {
     title: 'From',
