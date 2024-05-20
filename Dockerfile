@@ -1,5 +1,5 @@
 # Controls whether to build the frontend assets
-ARG FRONTEND_BUILD_MODE=0
+ARG FRONTEND_BUILD_MODE=2
 
 # MODE 0: create empty files. useful for backend tests
 FROM alpine:3.19 as frontend-builder-0
