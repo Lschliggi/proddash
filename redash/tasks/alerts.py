@@ -47,6 +47,10 @@ def check_alerts_for_query(query_id, metadata):
                 logger.debug("Skipping notification (previous state was unknown and now it's ok).")
                 continue
 
+            if old_state == models.Alert.TRIGGERED_STATE and new_state == models.Alert.OK_STATE:
+                logger.debug("Skipping notification (previous state was triggered and now it's ok).")
+                continue
+
             if alert.muted:
                 logger.debug("Skipping notification (alert muted).")
                 continue
